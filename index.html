@@ -1,45 +1,47 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ahmed DevOps</title> <!-- عدّل: اسمك -->
-<meta name="description" content="مهندس DevOps مبتدئ: Terraform وLocalStack وCI/CD.">
+<title>أحمد طلحة | Cloud & DevOps Engineer</title>
+<meta name="description" content="مهندس سحابة وDevOps متخصص في بناء البنية التحتية كرمز، وأتمتة مسارات النشر، وتصميم الأنظمة الموزعة.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f2f5f7; --surface:#ffffff; --ink:#12263a; --muted:#52667a;
-  --line:#d3dce4; --accent:#0b7a86; --accent-ink:#ffffff; --ok:#1a8a4a; --wait:#c58a00;
+  --bg:#f8fafc; --surface:#ffffff; --ink:#0f172a; --muted:#475569;
+  --line:#e2e8f0; --accent:#0284c7; --accent-ink:#ffffff; --ok:#16a34a; --wait:#ca8a04;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0f1b27; --surface:#162636; --ink:#e6eef5; --muted:#9bb0c3;
-  --line:#27405a; --accent:#4cc3d0; --accent-ink:#0f1b27; --ok:#4fd388; --wait:#f0b429;}
+  :root{--bg:#090d16; --surface:#111827; --ink:#f8fafc; --muted:#94a3b8;
+  --line:#1f2937; --accent:#38bdf8; --accent-ink:#090d16; --ok:#22c55e; --wait:#eab308;}
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:1.05rem}
-a{color:var(--accent)}
+a{color:var(--accent);text-decoration:none;transition:opacity 0.2s}
+a:hover{opacity:0.85}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:860px;margin:0 auto;padding:0 1.25rem}
-header.top{padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.wrap{max-width:920px;margin:0 auto;padding:0 1.5rem}
+
+header.top{padding:1.2rem 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);backdrop-filter:blur(8px);z-index:100;background-opacity:0.9}
 header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.brand{font-weight:700}
-nav a{margin-inline-start:1.1rem;text-decoration:none;color:var(--muted);font-weight:500}
+.brand{font-weight:700;font-size:1.1rem;letter-spacing:-0.5px}
+nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+nav a{color:var(--muted);font-weight:500;font-size:0.95rem}
 nav a:hover{color:var(--accent)}
 
 /* Hero */
-.hero{padding:4rem 0 3rem}
-.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.35;font-weight:700;max-width:16em}
-.hero p.lead{margin-top:1rem;color:var(--muted);max-width:34em;font-size:1.15rem}
-.pipeline{margin-top:2.5rem;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.4rem}
-.pipeline h2{font-size:.95rem;color:var(--muted);font-weight:500;margin-bottom:.8rem}
+.hero{padding:4.5rem 0 3.5rem}
+.hero h1{font-size:clamp(2.2rem, 5vw, 3.6rem);line-height:1.3;font-weight:700;max-width:18em;letter-spacing:-1px}
+.hero p.lead{margin-top:1.2rem;color:var(--muted);max-width:38em;font-size:1.2rem}
+.pipeline{margin-top:2.8rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.02)}
+.pipeline h2{font-size:.9rem;color:var(--muted);font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.5px}
 .stages{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem}
-.stage{display:flex;align-items:center;gap:.5rem;padding:.45rem .9rem;border:1.5px solid var(--line);border-radius:999px;font-weight:500;background:var(--bg)}
+.stage{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border:1.5px solid var(--line);border-radius:999px;font-weight:500;background:var(--bg);font-size:0.9rem}
 .stage .dot{width:1.2rem;height:1.2rem;border-radius:50%;display:grid;place-items:center;font-size:.75rem;background:var(--wait);color:#fff}
-.bar{flex:0 0 1.4rem;height:2px;background:var(--line)}
+.bar{flex:0 0 1.5rem;height:2px;background:var(--line)}
 .stage.done{border-color:var(--ok)}
 .stage.done .dot{background:var(--ok)}
 .stage.done .dot::after{content:"✓"}
@@ -50,44 +52,55 @@ nav a:hover{color:var(--accent)}
   @keyframes pass{from{border-color:var(--line)}to{border-color:var(--ok)}}
   @keyframes flip{from{background:var(--wait)}to{background:var(--ok)}}
 }
-.buttons{margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap}
-.btn{display:inline-block;padding:.65rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:700;border:2px solid var(--accent)}
+.buttons{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--accent);transition:transform 0.1s}
+.btn:active{transform:scale(0.98)}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
-.btn.ghost{color:var(--accent)}
+.btn.ghost{color:var(--accent);background:transparent}
 .btn:hover{filter:brightness(1.1)}
 
 /* Sections */
-section{padding:2.6rem 0;border-top:1px solid var(--line)}
-section h2{font-size:1.6rem;margin-bottom:1rem}
-.about p{max-width:38em}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem 1.5rem}
-.skills h3{font-size:1rem;margin-bottom:.4rem;color:var(--accent)}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.tags span{padding:.15rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:.92rem}
-.level{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+section{padding:3.2rem 0;border-top:1px solid var(--line)}
+section h2{font-size:1.75rem;margin-bottom:1.2rem;letter-spacing:-0.5px}
+.about p{max-width:42em;color:var(--muted);font-size:1.1rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.skill-card{background:var(--surface);border:1px solid var(--line);padding:1.5rem;border-radius:14px;box-shadow:0 2px 4px rgba(0,0,0,0.01)}
+.skill-card h3{font-size:1.1rem;margin-bottom:.6rem;color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.tags span{padding:.2rem .75rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:.88rem;font-weight:500}
+.level{font-size:.85rem;color:var(--muted)}
 
-.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
-.project h3{font-size:1.25rem}
-.project p{margin-top:.5rem;color:var(--muted);max-width:40em}
-.flow{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0;align-items:center;font-weight:500}
-.flow span.n{padding:.2rem .8rem;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.8rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.02)}
+.project h3{font-size:1.35rem;letter-spacing:-0.3px}
+.project p{margin-top:.6rem;color:var(--muted);max-width:44em}
+.flow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0;align-items:center;font-weight:500;font-size:0.9rem}
+.flow span.n{padding:.3rem .9rem;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
 .flow span.a{color:var(--muted)}
-.project ul{margin:.6rem 1.3rem 1rem;color:var(--muted)}
+.project ul{margin:.8rem 1.4rem 1.2rem;color:var(--muted)}
+.project ul li{margin-bottom:0.4rem}
 
-.contact ul{list-style:none;padding:0;display:grid;gap:.5rem}
-.contact a{font-weight:500}
-footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.92rem}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
-@media(max-width:520px){nav a{margin-inline-start:.8rem}.hero{padding-top:2.5rem}}
+.contact ul{list-style:none;padding:0;display:grid;gap:.8rem;max-width:30em}
+.contact li{background:var(--surface);border:1px solid var(--line);padding:0.9rem 1.2rem;border-radius:10px;display:flex;justify-content:space-between;align-items:center}
+.contact span.label{font-weight:600;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:0.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media(max-width:640px){
+  .hero{padding-top:3rem}
+  nav{gap:0.8rem}
+  .buttons{flex-direction:column}
+  .btn{text-align:center}
+}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <span class="brand">ahmed talha</span> <!-- عدّل: اسمك -->
+    <span class="brand">أحمد طلحة ⚡</span>
     <nav aria-label="التنقل">
-      <a href="#about">نبذة</a>
+      <a href="#about">النبذة</a>
       <a href="#skills">المهارات</a>
       <a href="#projects">المشاريع</a>
       <a href="#contact">التواصل</a>
@@ -99,83 +112,83 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem
 <div class="wrap">
 
   <div class="hero">
-    <h1>أبني بنية تحتية تُنشَر تلقائيًا، وأتعلّم DevOps بالتطبيق.</h1> <!-- عدّل: العنوان الرئيسي -->
-    <p class="lead">مبتدئ في DevOps، أعمل على Terraform وLocalStack وGitHub Actions، وأبني مشاريع صغيرة لأفهم كل خطوة بنفسي.</p>
+    <h1>هندسة السحابة، البنية كرمز، وأتمتة النشر باحترافية.</h1>
+    <p class="lead">مهندس سحابة وDevOps أركز على بناء وتصميم بنيات تحتية قابلة للتوسع، وتطبيق مبادئ الأتمتة الكاملة باستخدام أحدث أدوات السحابة والـ CI/CD.</p>
 
-    <div class="pipeline" aria-label="مراحل نشر هذا الموقع">
-      <h2>هكذا وصلت هذه الصفحة إليك</h2>
+    <div class="pipeline" aria-label="مراحل النشر الآلي">
+      <h2>مسار التشغيل الآلي (CI/CD Pipeline)</h2>
       <div class="stages">
-        <div class="stage done" style="--i:0"><span class="dot"></span>commit</div><div class="bar"></div>
-        <div class="stage done" style="--i:1"><span class="dot"></span>push</div><div class="bar"></div>
-        <div class="stage done" style="--i:2"><span class="dot"></span>workflow</div><div class="bar"></div>
-        <div class="stage done" style="--i:3"><span class="dot"></span>deploy</div>
+        <div class="stage done" style="--i:0"><span class="dot"></span>Code</div><div class="bar"></div>
+        <div class="stage done" style="--i:1"><span class="dot"></span>Test</div><div class="bar"></div>
+        <div class="stage done" style="--i:2"><span class="dot"></span>Terraform</div><div class="bar"></div>
+        <div class="stage done" style="--i:3"><span class="dot"></span>Deploy</div>
       </div>
     </div>
 
     <div class="buttons">
-      <a class="btn primary" href="#projects">شاهد مشروعي</a>
-      <a class="btn ghost" href="cv.pdf">حمّل السيرة الذاتية</a> <!-- ارفع ملف cv.pdf بجانب هذا الملف -->
+      <a class="btn primary" href="#projects">استعرض المشاريع</a>
+      <a class="btn ghost" href="#contact">تواصل معي</a>
     </div>
   </div>
 
   <section id="about" class="about">
-    <h2>نبذة عني</h2>
-    <p>أتعلّم DevOps بالممارسة: أكتب البنية بالكود، وأختبرها محليًا، وأؤتمت نشرها. أفضّل أن أفهم سبب كل أمر قبل تنفيذه.</p> <!-- عدّل: نبذة من 2-3 جمل -->
+    <h2>نبذة تعريفية</h2>
+    <p>مهندس شغوف بتصميم الأنظمة السحابية وإدارتها بكفاءة عالية. أؤمن بأن الأتمتة المتقنة وتطبيق ممارسات البنية التحتية كرمز (IaC) هما أساس أي بنية تقنية مستقرة وقابلة للتطور السريع. أسعى دائماً لتحويل المعمارية المعقدة إلى مسارات تشغيل سلسة وآمنة.</p>
   </section>
 
   <section id="skills">
-    <h2>المهارات</h2>
+    <h2>المهارات التقنية</h2>
     <div class="skills">
-      <div>
-        <h3>البنية كرمز</h3>
-        <div class="tags"><span>Terraform</span><span>LocalStack</span></div>
-        <p class="level">أتعلّم حاليًا: modules وremote state</p>
+      <div class="skill-card">
+        <h3>البنية كرمز (IaC)</h3>
+        <div class="tags"><span>Terraform</span><span>LocalStack</span><span>AWS Services</span></div>
+        <p class="level">تصميم Modules متقدمة وإدارة الحالة بفاعلية</p>
       </div>
-      <div>
-        <h3>CI/CD</h3>
-        <div class="tags"><span>GitHub Actions</span><span>GitHub Pages</span></div>
-        <p class="level">أساسيات: workflows وjobs وsteps</p>
+      <div class="skill-card">
+        <h3>الأتمتة والـ CI/CD</h3>
+        <div class="tags"><span>GitHub Actions</span><span>Docker</span><span>Git</span></div>
+        <p class="level">بناء مسارات نشر واختبار تلقائية بالكامل</p>
       </div>
-      <div>
-        <h3>السحابة (محاكاة)</h3>
-        <div class="tags"><span>SQS</span><span>Lambda</span><span>DynamoDB</span></div>
-        <p class="level">تطبيق عملي على LocalStack</p>
+      <div class="skill-card">
+        <h3>الخدمات المصغرة والسحابية</h3>
+        <div class="tags"><span>AWS SQS</span><span>AWS Lambda</span><span>DynamoDB</span></div>
+        <p class="level">تصميم أنظمة تعتمد على الأحداث (Event-driven)</p>
       </div>
-      <div>
+      <div class="skill-card">
         <h3>البرمجة والأدوات</h3>
-        <div class="tags"><span>Python</span><span>FastAPI</span><span>Git</span><span>Linux</span></div>
-        <p class="level">استخدام يومي</p>
+        <div class="tags"><span>Python</span><span>FastAPI</span><span>Linux / Bash</span></div>
+        <p class="level">تطوير الخلفيات البرمجية وإدارة الأنظمة</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>المشاريع</h2>
+    <h2>أبرز المشاريع الهندسية</h2>
     <article class="project">
-      <h3>نظام رسائل يعتمد على الأحداث</h3>
-      <p>صفحة ويب ترسل رسائل إلى طابور، ودالة Lambda تعالجها وتمررها إلى طابور آخر، ثم تُحفظ النتيجة في قاعدة بيانات.</p>
-      <div class="flow" aria-label="مسار البيانات">
-        <span class="n">صفحة ويب</span><span class="a">←</span>
-        <span class="n">FastAPI</span><span class="a">←</span>
-        <span class="n">SQS</span><span class="a">←</span>
-        <span class="n">Lambda</span><span class="a">←</span>
-        <span class="n">SQS</span><span class="a">←</span>
+      <h3>نظام رسائل موزع يعتمد على الأحداث (Event-Driven Messaging System)</h3>
+      <p>معمارية سحابية متكاملة لربط واجهات البرمجيات بطوابير الرسائل، مع معالجة خلفية آمنة وإدارة الأخطاء.</p>
+      <div class="flow" aria-label="مسار البيانات في النظام">
+        <span class="n">FastAPI</span><span class="a">→</span>
+        <span class="n">AWS SQS</span><span class="a">→</span>
+        <span class="n">Lambda Handler</span><span class="a">→</span>
+        <span class="n">DLQ (Error Handling)</span><span class="a">→</span>
         <span class="n">DynamoDB</span>
       </div>
       <ul>
-        <li>كل الموارد معرّفة بـ Terraform وتعمل على LocalStack.</li>
-        <li>طابور للرسائل الفاشلة (Dead Letter Queue) لمعالجة الأخطاء.</li>
+        <li>تمت هندسة وبناء كافة الموارد برمجياً باستخدام Terraform والاختبار المحلي عبر LocalStack.</li>
+        <li>تطبيق معايير الاعتمادية العالية عبر طوابير الرسائل الفاشلة (Dead Letter Queues) لضمان عدم ضياع البيانات.</li>
+        <li>أتمتة عملية النشر والتحقق عبر مسارات GitHub Actions المتكاملة.</li>
       </ul>
-      <a href="https://github.com/ahm3dtalha" rel="noopener">عرض الكود على GitHub</a> <!-- عدّل: رابط مستودع المشروع -->
+      <a href="https://github.com/ahm3dtalha" rel="noopener">مستودع المشروع على GitHub &larr;</a>
     </article>
   </section>
 
   <section id="contact" class="contact">
-    <h2>التواصل</h2>
+    <h2>قنوات التواصل المهني</h2>
     <ul>
-      <li>GitHub: <a href="https://github.com/ahm3dtalha" rel="noopener">github.com/ahm3dtalha</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/your-name" rel="noopener">أضف رابطك هنا</a></li> <!-- عدّل -->
-      <li>البريد: <a href="mailto:my@example.com">myemail@example.com</a></li> <!-- عدّل -->
+      <li><span class="label">GitHub</span> <a href="https://github.com/ahm3dtalha" rel="noopener">ahm3dtalha</a></li>
+      <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/your-profile" rel="noopener">أضف رابط حسابك</a></li>
+      <li><span class="label">البريد الإلكتروني</span> <a href="mailto:your.email@domain.com">your.email@domain.com</a></li>
     </ul>
   </section>
 
@@ -184,8 +197,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem
 
 <footer>
   <div class="wrap">
-    <span>© <span id="y">2026</span> أحمد طلحة</span>
-    <span>تُنشَر تلقائيًا عبر GitHub Actions وGitHub Pages</span>
+    <span>© <span id="y">2026</span> أحمد طلحة. جميع الحقوق محفوظة.</span>
+    <span>مُدار ومُنشَر عبر مسارات أتمتة سحابية</span>
   </div>
 </footer>
 <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
