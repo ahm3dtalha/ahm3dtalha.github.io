@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>أحمد طلحة | مهندس حاسوب وسحابة (Cloud & DevOps Engineer)</title>
-<meta name="description" content="مهندس حاسوب متخصص في هندسة السحابة، DevOps، البنية التحتية كرمز، الشبكات، وأتمتة النشر.">
+<title>أحمد طلحة | مهندس حاسوب – DevOps وسحابة وإدارة أنظمة</title>
+<meta name="description" content="مهندس حاسوب متخصص في DevOps والحوسبة السحابية (AWS) وإدارة خوادم Linux وWindows Server، مع مهارات مكتبية وتشغيلية.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,37 +12,49 @@
 <style>
 :root{
   --bg:#f8fafc; --surface:#ffffff; --ink:#0f172a; --muted:#475569;
-  --line:#e2e8f0; --accent:#0284c7; --accent-ink:#ffffff; --ok:#16a34a; --wait:#ca8a04;
+  --line:#e2e8f0; --accent:#0369a1; --accent-ink:#ffffff; --ok:#16a34a; --wait:#ca8a04;
 }
 @media (prefers-color-scheme:dark){
   :root{--bg:#090d16; --surface:#111827; --ink:#f8fafc; --muted:#94a3b8;
   --line:#1f2937; --accent:#38bdf8; --accent-ink:#090d16; --ok:#22c55e; --wait:#eab308;}
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
 body{font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:1.05rem}
-a{color:var(--accent);text-decoration:none;transition:opacity 0.2s}
-a:hover{opacity:0.85}
+a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.85}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:940px;margin:0 auto;padding:0 1.5rem}
+[dir="ltr"]{unicode-bidi:isolate}
 
-header.top{padding:1.2rem 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);backdrop-filter:blur(8px);z-index:100}
+header.top{padding:.9rem 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);z-index:100}
 header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.brand{font-weight:700;font-size:1.15rem;letter-spacing:-0.5px}
+.brand{font-weight:700;font-size:1.15rem}
 nav{display:flex;gap:1.2rem;flex-wrap:wrap}
-nav a{color:var(--muted);font-weight:500;font-size:0.95rem}
+nav a{color:var(--muted);font-weight:500;font-size:.95rem}
 nav a:hover{color:var(--accent)}
 
+.langbtn{font:inherit;font-size:.9rem;font-weight:700;padding:.3rem .9rem;border:1.5px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);cursor:pointer}
+.langbtn:hover{background:var(--accent);color:var(--accent-ink)}
 /* Hero */
-.hero{padding:4.5rem 0 3.5rem}
-.badge{display:inline-block;padding:0.35rem 0.9rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;font-size:0.88rem;font-weight:600;color:var(--accent);margin-bottom:1.2rem}
-.hero h1{font-size:clamp(2.1rem, 5vw, 3.4rem);line-height:1.3;font-weight:700;max-width:18em;letter-spacing:-1px}
-.hero p.lead{margin-top:1.2rem;color:var(--muted);max-width:40em;font-size:1.18rem}
+.hero{padding:3.5rem 0 3rem}
+.badge{display:inline-block;padding:.35rem .9rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:600;color:var(--accent);margin-bottom:1rem}
+.fullname{color:var(--muted);font-weight:500;margin-bottom:.4rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.35;font-weight:700;max-width:18em}
+.hero p.lead{margin-top:1.2rem;color:var(--muted);max-width:40em;font-size:1.15rem}
 
-.pipeline{margin-top:2.8rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.02)}
-.pipeline h2{font-size:.9rem;color:var(--muted);font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.5px}
+/* View switch */
+.switch{margin-top:1.8rem;display:inline-flex;border:1.5px solid var(--line);border-radius:12px;padding:.25rem;background:var(--surface);gap:.25rem}
+.switch button{font:inherit;font-size:.92rem;font-weight:600;padding:.45rem 1.1rem;border:0;border-radius:9px;background:transparent;color:var(--muted);cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.ops-only{display:none}
+body[data-view="ops"] .ops-only{display:revert}
+body[data-view="ops"] .eng-only{display:none}
+
+.pipeline{margin-top:2.4rem;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.3rem 1.5rem}
+.pipeline h2{font-size:.9rem;color:var(--muted);font-weight:600;margin-bottom:1rem}
 .stages{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem}
-.stage{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border:1.5px solid var(--line);border-radius:999px;font-weight:500;background:var(--bg);font-size:0.9rem}
+.stage{display:flex;align-items:center;gap:.5rem;padding:.45rem 1rem;border:1.5px solid var(--line);border-radius:999px;font-weight:500;background:var(--bg);font-size:.9rem}
 .stage .dot{width:1.2rem;height:1.2rem;border-radius:50%;display:grid;place-items:center;font-size:.75rem;background:var(--wait);color:#fff}
 .bar{flex:0 0 1.5rem;height:2px;background:var(--line)}
 .stage.done{border-color:var(--ok)}
@@ -56,71 +68,87 @@ nav a:hover{color:var(--accent)}
   @keyframes flip{from{background:var(--wait)}to{background:var(--ok)}}
 }
 
-.buttons{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-block;padding:.75rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:700;border:2px solid var(--accent);transition:transform 0.1s}
-.btn:active{transform:scale(0.98)}
+.buttons{margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.5rem;border-radius:10px;font-weight:700;border:2px solid var(--accent);font-family:inherit;font-size:1rem;cursor:pointer}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{color:var(--accent);background:transparent}
-.btn:hover{filter:brightness(1.1)}
 
 /* Sections */
-section{padding:3.2rem 0;border-top:1px solid var(--line)}
-section h2{font-size:1.75rem;margin-bottom:1.2rem;letter-spacing:-0.5px}
-.about p{max-width:44em;color:var(--muted);font-size:1.1rem;margin-bottom:1rem}
+section{padding:3rem 0;border-top:1px solid var(--line)}
+section h2{font-size:1.7rem;margin-bottom:1.2rem}
+.about p{max-width:44em;color:var(--muted);font-size:1.08rem;margin-bottom:1rem}
 
-/* Education */
-.edu-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
-.edu-card h3{font-size:1.2rem;color:var(--ink)}
-.edu-card p{color:var(--muted);font-size:0.98rem;margin-top:0.3rem}
-.edu-tag{padding:0.25rem 0.8rem;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:0.88rem;font-weight:600;color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem}
+.edu-card{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
+.edu-card h3{font-size:1.2rem}
+.edu-card p{color:var(--muted);font-size:.98rem;margin-top:.3rem}
+.edu-tag{padding:.25rem .8rem;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:.88rem;font-weight:600;color:var(--accent)}
 
-/* Skills */
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.roles h3{font-size:1.05rem;color:var(--accent);margin-bottom:.6rem}
+.roles ul{list-style:none;padding:0}
+.roles li{padding:.3rem 0;border-bottom:1px dashed var(--line);font-size:.98rem}
+.roles li:last-child{border:0}
+.roles li small{display:block;color:var(--muted);font-size:.85rem;line-height:1.5;padding-bottom:.3rem}
+
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-.skill-card{background:var(--surface);border:1px solid var(--line);padding:1.5rem;border-radius:14px;box-shadow:0 2px 4px rgba(0,0,0,0.01)}
-.skill-card h3{font-size:1.1rem;margin-bottom:.7rem;color:var(--accent)}
+.skill-card h3{font-size:1.08rem;margin-bottom:.7rem;color:var(--accent)}
 .tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
-.tags span{padding:.22rem .75rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:.88rem;font-weight:500}
-.level{font-size:.85rem;color:var(--muted)}
+.tags span{padding:.2rem .75rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:.88rem;font-weight:500}
+.level{font-size:.88rem;color:var(--muted);line-height:1.7}
+body[data-view="ops"] .skill-card.office{order:-1;border-color:var(--accent)}
 
-/* Projects */
-.project{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.8rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.02)}
-.project h3{font-size:1.35rem;letter-spacing:-0.3px}
+.project+.project{margin-top:1.5rem}
+.project h3{font-size:1.3rem}
 .project p{margin-top:.6rem;color:var(--muted);max-width:44em}
-.flow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0;align-items:center;font-weight:500;font-size:0.9rem}
+.flow{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0;align-items:center;font-weight:500;font-size:.9rem}
 .flow span.n{padding:.3rem .9rem;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
 .flow span.a{color:var(--muted)}
 .project ul{margin:.8rem 1.4rem 1.2rem;color:var(--muted)}
-.project ul li{margin-bottom:0.4rem}
+.project ul li{margin-bottom:.4rem}
+.pill{display:inline-block;font-size:.8rem;font-weight:600;padding:.1rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-inline-start:.5rem;vertical-align:middle}
 
-/* Contact */
 .contact ul{list-style:none;padding:0;display:grid;gap:.8rem;max-width:34em}
-.contact li{background:var(--surface);border:1px solid var(--line);padding:0.9rem 1.2rem;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.contact li{background:var(--surface);border:1px solid var(--line);padding:.9rem 1.2rem;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .contact span.label{font-weight:600;color:var(--muted)}
 
-footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:0.9rem}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 
 @media(max-width:640px){
-  .hero{padding-top:3rem}
-  nav{gap:0.8rem}
+  .hero{padding-top:2.5rem}
+  nav{gap:.8rem}
   .buttons{flex-direction:column}
   .btn{text-align:center}
   .bar{display:none}
 }
+
+/* Print / PDF */
+@media print{
+  :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#ccc;--accent:#0b4f75}
+  body{font-size:10.5pt;line-height:1.6}
+  header.top,.buttons,.pipeline,.switch,.hero .lead + .switch{display:none!important}
+  .hero{padding:0 0 1rem}
+  section{padding:1rem 0;break-inside:avoid}
+  .card,.project{break-inside:avoid;box-shadow:none}
+  a{color:inherit}
+}
 </style>
 </head>
-<body>
+<body data-view="eng">
 
 <header class="top">
   <div class="wrap">
     <span class="brand">أحمد طلحة ⚡</span>
     <nav aria-label="التنقل">
       <a href="#about">النبذة</a>
+      <a href="#roles">الوظائف المستهدفة</a>
       <a href="#education">المؤهل</a>
       <a href="#skills">المهارات</a>
       <a href="#projects">المشاريع</a>
       <a href="#contact">التواصل</a>
     </nav>
+    <button type="button" class="langbtn" id="langbtn" lang="en" aria-label="Switch language to English">English</button>
   </div>
 </header>
 
@@ -128,13 +156,24 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 <div class="wrap">
 
   <div class="hero">
-    <span class="badge">مهندس حاسوب • Cloud & DevOps Engineer</span>
-    <h1>هندسة السحابة، البنية كرمز، وأتمتة النشر باحترافية.</h1>
-    <p class="lead">خريج هندسة حاسوب أجمع بين الفهم العميق للبنية التحتية المادية (Hardware) والشبكات وأنظمة التشغيل، وبين أحدث تقنيات السحابة وأتمتة البرمجيات وبناء الأنظمة الموزعة.</p>
+    <p class="fullname">أحمد طلحة محمد عثمان عبدالباقي</p>
+    <span class="badge eng-only">مهندس حاسوب • DevOps وسحابة • مدير أنظمة</span>
+    <span class="badge ops-only">مهندس حاسوب • دعم فني وأعمال مكتبية</span>
+
+    <h1 class="eng-only">هندسة السحابة، البنية كرمز، وأتمتة النشر بكفاءة.</h1>
+    <h1 class="ops-only">دقة وسرعة في الأعمال المكتبية، إدخال البيانات، وأنظمة نقاط البيع.</h1>
+
+    <p class="lead eng-only">مهندس حاسوب أجمع بين إدارة خوادم Linux وWindows Server، والحوسبة السحابية على AWS، وأتمتة البنية التحتية ومسارات النشر (CI/CD).</p>
+    <p class="lead ops-only">مهندس حاسوب يتقن حزمة Microsoft Office، والأرشفة وإدخال البيانات بدقة، والتعامل مع أنظمة الكاشير ونقاط البيع وخدمة العملاء، مع قدرة على حل مشكلات الأجهزة والأنظمة.</p>
+
+    <div class="switch" role="group" aria-label="اختيار نسخة السيرة">
+      <button type="button" data-set="eng" aria-pressed="true">النسخة الهندسية</button>
+      <button type="button" data-set="ops" aria-pressed="false">النسخة التشغيلية</button>
+    </div>
 
     <div class="pipeline" aria-label="مراحل النشر الآلي">
-      <h2>مسار التشغيل الآلي (CI/CD Pipeline)</h2>
-      <div class="stages">
+      <h2>مسار النشر الآلي (CI/CD Pipeline)</h2>
+      <div class="stages" dir="ltr">
         <div class="stage done" style="--i:0"><span class="dot"></span>Code</div><div class="bar"></div>
         <div class="stage done" style="--i:1"><span class="dot"></span>Test</div><div class="bar"></div>
         <div class="stage done" style="--i:2"><span class="dot"></span>Terraform</div><div class="bar"></div>
@@ -145,66 +184,119 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     <div class="buttons">
       <a class="btn primary" href="#projects">استعرض المشاريع</a>
       <a class="btn ghost" href="#contact">تواصل معي</a>
+      <button class="btn ghost" type="button" onclick="window.print()">حفظ كـ PDF</button>
     </div>
   </div>
 
   <section id="about" class="about">
-    <h2>نبذة تعريفية</h2>
-    <p>مهندس حاسوب متمكن برمجياً، أمتلك قاعدة هندسية صلبة تمتد من فهم عتاد الحاسوب (Hardware) وبروتوكولات الشبكات وإدارة أنظمة التشغيل، وصولاً إلى تصميم البنيات السحابية المتقدمة.</p>
-    <p>أركز في عملي على تحويل المعماريات السحابية إلى كود قابل للتكرار والتوسع (Infrastructure as Code)، وبناء مسارات CI/CD مؤتمتة تضمن سرعة الإطلاق وأعلى مستويات الاستقرار والأمان.</p>
+    <h2>الملخص المهني</h2>
+    <p class="eng-only">مهندس حاسوب يجمع بين خبرة تقنية في إدارة الخوادم (Linux وWindows Server)، والحوسبة السحابية (AWS)، وأتمتة البنية التحتية (DevOps)، وبين الدقة والسرعة في التعامل مع الأنظمة المكتبية وقواعد البيانات وأنظمة نقاط البيع (POS).</p>
+    <p class="eng-only">أركز على تحويل المعماريات السحابية إلى كود قابل للتكرار والتوسع (Infrastructure as Code)، وبناء مسارات CI/CD مؤتمتة تضمن سرعة الإطلاق والاستقرار والأمان. أتميز بالمرونة والقدرة على العمل تحت الضغط.</p>
+    <p class="ops-only">مهندس حاسوب يتميز بالدقة والسرعة في التعامل مع الأنظمة المكتبية وقواعد البيانات وأنظمة نقاط البيع (POS)، ويتقن أساسيات الحاسوب والتطبيقات الإدارية. مرن، منظم، ويعمل بكفاءة تحت الضغط.</p>
+    <p class="ops-only">إضافة إلى ذلك، لدي خبرة تقنية في إدارة الأنظمة والخوادم تتيح لي الدعم الفني وحل الأعطال بسرعة.</p>
+  </section>
+
+  <section id="roles">
+    <h2>الوظائف المستهدفة</h2>
+    <div class="roles">
+      <div class="card">
+        <h3>المسار الهندسي والتقني</h3>
+        <ul>
+          <li>مهندس DevOps<small>DevOps Engineer</small></li>
+          <li>مهندس بنية تحتية سحابية<small>Cloud Infrastructure / AWS Engineer</small></li>
+          <li>مدير أنظمة Linux وWindows Server<small>System Administrator</small></li>
+          <li>مطور خلفية<small>Backend Developer – Python / FastAPI</small></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>المسار الإداري والتشغيلي</h3>
+        <ul>
+          <li>أخصائي إدخال بيانات<small>Data Entry Specialist</small></li>
+          <li>كاشير ومشغل نقاط بيع<small>Cashier &amp; POS Operator</small></li>
+          <li>دعم فني وأعمال مكتبية<small>IT Support &amp; Office Administration</small></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="education">
     <h2>المؤهل الأكاديمي</h2>
-    <div class="edu-card">
+    <div class="card edu-card">
       <div>
-        <h3>بكالوريوس في هندسة الحاسوب (Computer Engineering)</h3>
-        <p>كلية الهندسة — تخصص يشمل هندسة البرمجيات، معمارية الحاسوب، الشبكات، وأنظمة التشغيل المدمجة والموزعة.</p>
+        <h3>بكالوريوس الشرف في هندسة الحاسوب</h3>
+        <p>Bachelor of Science (Honours) in Computer Engineering – تقدير جيد</p>
       </div>
       <span class="edu-tag">مهندس حاسوب</span>
     </div>
   </section>
 
   <section id="skills">
-    <h2>المهارات التقنية</h2>
+    <h2>المهارات التقنية والمكتبية</h2>
     <div class="skills">
-      <div class="skill-card">
-        <h3>الخدمات السحابية (AWS & LocalStack)</h3>
-        <div class="tags">
-          <span>S3</span><span>SQS</span><span>SNS</span><span>Lambda</span><span>DynamoDB</span><span>IAM</span><span>EC2</span>
+      <div class="card skill-card">
+        <h3>إدارة الخوادم وأنظمة التشغيل</h3>
+        <div class="tags" dir="ltr">
+          <span>Windows Server</span><span>Active Directory</span><span>DNS</span><span>DHCP</span><span>Ubuntu Linux</span><span>Nginx</span><span>Apache</span><span>Bash</span>
         </div>
-        <p class="level">تصميم وإدارة الأنظمة السحابية والأنظمة المعتمدة على الأحداث</p>
+        <p class="level">إدارة المستخدمين والصلاحيات، وخوادم الويب، وكتابة سكريبتات الأتمتة.</p>
       </div>
-      <div class="skill-card">
-        <h3>البنية كرمز والأتمتة (IaC & DevOps)</h3>
-        <div class="tags">
-          <span>Terraform</span><span>Docker</span><span>GitHub Actions</span><span>CI/CD</span><span>Git</span>
+      <div class="card skill-card">
+        <h3>الحوسبة السحابية (AWS)</h3>
+        <div class="tags" dir="ltr">
+          <span>EC2</span><span>ECR</span><span>S3</span><span>VPC</span><span>DynamoDB</span><span>IAM</span><span>SQS</span><span>SNS</span><span>Lambda</span><span>LocalStack</span>
         </div>
-        <p class="level">بناء Modules معيارية وأتمتة دورة حياة التطبيقات بالكامل</p>
+        <p class="level">تصميم وإدارة الأنظمة السحابية والأنظمة المعتمدة على الأحداث.</p>
       </div>
-      <div class="skill-card">
-        <h3>البرمجة وتطوير الخلفيات</h3>
-        <div class="tags">
-          <span>Python</span><span>FastAPI</span><span>REST APIs</span><span>Bash Scripting</span>
+      <div class="card skill-card">
+        <h3>الأتمتة والبنية كرمز (DevOps)</h3>
+        <div class="tags" dir="ltr">
+          <span>Terraform</span><span>Remote State</span><span>GitHub Actions</span><span>CI/CD</span><span>Docker</span><span>Prometheus</span><span>Grafana</span><span>Git</span>
         </div>
-        <p class="level">كتابة كود نظيف وبناء واجهات برمجية عالية الأداء</p>
+        <p class="level">بناء Modules معيارية، وأتمتة دورة حياة التطبيق، ومراقبة الأنظمة.</p>
       </div>
-      <div class="skill-card">
-        <h3>الأنظمة، الشبكات والعتاد</h3>
-        <div class="tags">
-          <span>Linux Administration</span><span>Computer Networks</span><span>TCP/IP</span><span>Hardware Architecture</span><span>OS Internals</span>
+      <div class="card skill-card">
+        <h3>البرمجة وقواعد البيانات</h3>
+        <div class="tags" dir="ltr">
+          <span>Python</span><span>FastAPI</span><span>REST APIs</span><span>Automation Scripting</span><span>Databases</span>
         </div>
-        <p class="level">فهم عميق للبنية التحتية، تشخيص الأعطال، وإدارة الخوادم</p>
+        <p class="level">كتابة كود نظيف وبناء واجهات برمجية، وأساسيات قواعد البيانات.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>الشبكات والعتاد</h3>
+        <div class="tags" dir="ltr">
+          <span>Computer Networks</span><span>TCP/IP</span><span>Hardware Architecture</span><span>OS Internals</span>
+        </div>
+        <p class="level">فهم البنية التحتية وتشخيص الأعطال.</p>
+      </div>
+      <div class="card skill-card office">
+        <h3>المهارات المكتبية والتشغيلية</h3>
+        <div class="tags">
+          <span>Word</span><span>Excel</span><span>PowerPoint</span><span>إدخال بيانات</span><span>أرشفة إلكترونية</span><span>أنظمة POS</span><span>الجرد</span><span>خدمة العملاء</span>
+        </div>
+        <p class="level">إعداد التقارير والجداول الحسابية، وسرعة ودقة في إدخال البيانات وإدارة الملفات.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>أبرز المشاريع الهندسية</h2>
-    <article class="project">
-      <h3>نظام رسائل موزع يعتمد على الأحداث (Event-Driven Messaging System)</h3>
-      <p>معمارية سحابية متكاملة لربط واجهات البرمجيات بطوابير الرسائل وخدمات الإشعارات، مع معالجة خلفية آمنة وإدارة متقدمة للأخطاء.</p>
-      <div class="flow" aria-label="مسار البيانات في النظام">
+    <h2>أبرز المشاريع العملية</h2>
+
+    <article class="card project">
+      <h3>منصة نشر سحابية مؤتمتة بالكامل</h3>
+      <p>خط نشر متكامل (CI/CD) لتطبيق ويب باستخدام FastAPI وNginx داخل حاويات Docker على AWS EC2، مع أتمتة البنية التحتية عبر Terraform وGitHub Actions، ونظام مراقبة حي بـ Prometheus وGrafana.</p>
+      <div class="flow" dir="ltr" aria-label="مسار المشروع">
+        <span class="n">GitHub Actions</span><span class="a">→</span>
+        <span class="n">Docker (FastAPI + Nginx)</span><span class="a">→</span>
+        <span class="n">Terraform</span><span class="a">→</span>
+        <span class="n">AWS EC2</span><span class="a">→</span>
+        <span class="n">Prometheus + Grafana</span>
+      </div>
+    </article>
+
+    <article class="card project eng-only">
+      <h3>نظام رسائل موزع يعتمد على الأحداث</h3>
+      <p>معمارية سحابية تربط واجهات البرمجيات بطوابير الرسائل وخدمات الإشعارات، مع معالجة خلفية آمنة وإدارة متقدمة للأخطاء.</p>
+      <div class="flow" dir="ltr" aria-label="مسار البيانات في النظام">
         <span class="n">FastAPI</span><span class="a">→</span>
         <span class="n">SQS / SNS</span><span class="a">→</span>
         <span class="n">Lambda Handler</span><span class="a">→</span>
@@ -212,20 +304,27 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
         <span class="n">DynamoDB / S3</span>
       </div>
       <ul>
-        <li>تمت هندسة وبناء كافة الموارد برمجياً باستخدام Terraform Modules والاختبار المحلي المتكامل عبر LocalStack.</li>
-        <li>تطبيق معايير الاعتمادية العالية عبر طوابير الرسائل الفاشلة (Dead Letter Queues) لضمان عدم ضياع البيانات.</li>
-        <li>أتمتة عملية النشر والتحقق من الجودة عبر مسارات GitHub Actions.</li>
+        <li>بناء كافة الموارد برمجياً بـ Terraform Modules، واختبارها محلياً عبر LocalStack.</li>
+        <li>استخدام طوابير الرسائل الفاشلة (Dead Letter Queues) لمنع ضياع البيانات.</li>
+        <li>أتمتة النشر والتحقق من الجودة عبر GitHub Actions.</li>
       </ul>
-      <a href="https://github.com/ahm3dtalha" rel="noopener">مستودع المشروع على GitHub &larr;</a>
+      <a href="https://github.com/ahm3dtalha" rel="noopener">المستودع على GitHub ←</a>
+    </article>
+
+    <article class="card project">
+      <h3>عميل حوسبة حافة لإدارة الأصول التقنية الذكية <span class="pill">مشروع التخرج</span></h3>
+      <p>وكيل برمجي (Agent) خفيف الوزن لمراقبة أداء العتاد والموارد في الزمن الفعلي، مع لوحة تحكم مركزية لإدارة الأصول التقنية وتحسين استهلاكها.</p>
     </article>
   </section>
 
   <section id="contact" class="contact">
-    <h2>قنوات التواصل المهني</h2>
+    <h2>التواصل</h2>
     <ul>
-      <li><span class="label">GitHub</span> <a href="https://github.com/ahm3dtalha" rel="noopener">github.com/ahm3dtalha</a></li>
-      <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/your-profile" rel="noopener">أضف رابط حسابك هنا</a></li>
-      <li><span class="label">البريد الإلكتروني</span> <a href="mailto:your.email@domain.com">your.email@domain.com</a></li>
+      <li><span class="label">GitHub</span> <a href="https://github.com/ahm3dtalha" rel="noopener" dir="ltr">github.com/ahm3dtalha</a></li>
+      <!-- عدّل الرابط التالي -->
+      <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/your-profile" rel="noopener" dir="ltr">linkedin.com/in/your-profile</a></li>
+      <!-- عدّل البريد التالي -->
+      <li><span class="label">البريد الإلكتروني</span> <a href="mailto:your.email@domain.com" dir="ltr">your.email@domain.com</a></li>
     </ul>
   </section>
 
@@ -235,9 +334,93 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 <footer>
   <div class="wrap">
     <span>© <span id="y">2026</span> أحمد طلحة. جميع الحقوق محفوظة.</span>
-    <span>مُدار ومُنشَر عبر مسارات أتمتة سحابية</span>
   </div>
 </footer>
-<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+
+<script>
+document.getElementById("y").textContent=new Date().getFullYear();
+var EN={
+"أحمد طلحة ⚡":"Ahmed Talha ⚡",
+"النبذة":"About","الوظائف المستهدفة":"Target Roles","المؤهل":"Education","المهارات":"Skills","المشاريع":"Projects","التواصل":"Contact",
+"أحمد طلحة محمد عثمان عبدالباقي":"Ahmed Talha Mohamed Osman Abdelbagi",
+"مهندس حاسوب • DevOps وسحابة • مدير أنظمة":"Computer Engineer • DevOps & Cloud • System Administrator",
+"مهندس حاسوب • دعم فني وأعمال مكتبية":"Computer Engineer • IT Support & Office Administration",
+"هندسة السحابة، البنية كرمز، وأتمتة النشر بكفاءة.":"Cloud engineering, infrastructure as code, and efficient deployment automation.",
+"دقة وسرعة في الأعمال المكتبية، إدخال البيانات، وأنظمة نقاط البيع.":"Accurate, fast office work, data entry, and point-of-sale systems.",
+"مهندس حاسوب أجمع بين إدارة خوادم Linux وWindows Server، والحوسبة السحابية على AWS، وأتمتة البنية التحتية ومسارات النشر (CI/CD).":"Computer engineer combining Linux and Windows Server administration, AWS cloud computing, and automation of infrastructure and deployment pipelines (CI/CD).",
+"مهندس حاسوب يتقن حزمة Microsoft Office، والأرشفة وإدخال البيانات بدقة، والتعامل مع أنظمة الكاشير ونقاط البيع وخدمة العملاء، مع قدرة على حل مشكلات الأجهزة والأنظمة.":"Computer engineer proficient in Microsoft Office, accurate data entry and archiving, cashier/POS systems, and customer service, with the ability to troubleshoot hardware and systems.",
+"النسخة الهندسية":"Engineering version","النسخة التشغيلية":"Operations version",
+"مسار النشر الآلي (CI/CD Pipeline)":"Automated deployment (CI/CD pipeline)",
+"استعرض المشاريع":"View projects","تواصل معي":"Contact me","حفظ كـ PDF":"Save as PDF",
+"الملخص المهني":"Professional Summary",
+"مهندس حاسوب يجمع بين خبرة تقنية في إدارة الخوادم (Linux وWindows Server)، والحوسبة السحابية (AWS)، وأتمتة البنية التحتية (DevOps)، وبين الدقة والسرعة في التعامل مع الأنظمة المكتبية وقواعد البيانات وأنظمة نقاط البيع (POS).":"Computer engineer with technical expertise in server administration (Linux and Windows Server), cloud computing (AWS), and infrastructure automation (DevOps), combined with accuracy and speed in working with office systems, databases, and point-of-sale (POS) systems.",
+"أركز على تحويل المعماريات السحابية إلى كود قابل للتكرار والتوسع (Infrastructure as Code)، وبناء مسارات CI/CD مؤتمتة تضمن سرعة الإطلاق والاستقرار والأمان. أتميز بالمرونة والقدرة على العمل تحت الضغط.":"I focus on turning cloud architectures into repeatable, scalable code (Infrastructure as Code) and building automated CI/CD pipelines that deliver fast, stable, and secure releases. I am flexible and perform well under pressure.",
+"مهندس حاسوب يتميز بالدقة والسرعة في التعامل مع الأنظمة المكتبية وقواعد البيانات وأنظمة نقاط البيع (POS)، ويتقن أساسيات الحاسوب والتطبيقات الإدارية. مرن، منظم، ويعمل بكفاءة تحت الضغط.":"Computer engineer known for accuracy and speed with office systems, databases, and point-of-sale (POS) systems, with solid command of computer fundamentals and business applications. Flexible, organized, and efficient under pressure.",
+"إضافة إلى ذلك، لدي خبرة تقنية في إدارة الأنظمة والخوادم تتيح لي الدعم الفني وحل الأعطال بسرعة.":"In addition, my technical background in systems and server administration lets me provide IT support and resolve faults quickly.",
+"المسار الهندسي والتقني":"Engineering & Technical Track",
+"مهندس DevOps":"DevOps Engineer","مهندس بنية تحتية سحابية":"Cloud Infrastructure Engineer","مدير أنظمة Linux وWindows Server":"Linux & Windows Server Administrator","مطور خلفية":"Backend Developer",
+"المسار الإداري والتشغيلي":"Administrative & Operational Track",
+"أخصائي إدخال بيانات":"Data Entry Specialist","كاشير ومشغل نقاط بيع":"Cashier & POS Operator","دعم فني وأعمال مكتبية":"IT Support & Office Administration",
+"المؤهل الأكاديمي":"Education",
+"بكالوريوس الشرف في هندسة الحاسوب":"Bachelor's (Honours) in Computer Engineering",
+"Bachelor of Science (Honours) in Computer Engineering – تقدير جيد":"Bachelor of Science (Honours) in Computer Engineering – Grade: Good",
+"مهندس حاسوب":"Computer Engineer",
+"المهارات التقنية والمكتبية":"Technical & Office Skills",
+"إدارة الخوادم وأنظمة التشغيل":"Server & OS Administration",
+"إدارة المستخدمين والصلاحيات، وخوادم الويب، وكتابة سكريبتات الأتمتة.":"User and permission management, web servers, and automation scripting.",
+"الحوسبة السحابية (AWS)":"Cloud Computing (AWS)",
+"تصميم وإدارة الأنظمة السحابية والأنظمة المعتمدة على الأحداث.":"Designing and managing cloud and event-driven systems.",
+"الأتمتة والبنية كرمز (DevOps)":"Automation & IaC (DevOps)",
+"بناء Modules معيارية، وأتمتة دورة حياة التطبيق، ومراقبة الأنظمة.":"Building modular Terraform code, automating the application lifecycle, and monitoring systems.",
+"البرمجة وقواعد البيانات":"Programming & Databases",
+"كتابة كود نظيف وبناء واجهات برمجية، وأساسيات قواعد البيانات.":"Writing clean code, building APIs, and database fundamentals.",
+"الشبكات والعتاد":"Networking & Hardware",
+"فهم البنية التحتية وتشخيص الأعطال.":"Understanding infrastructure and diagnosing faults.",
+"المهارات المكتبية والتشغيلية":"Office & Operational Skills",
+"إدخال بيانات":"Data entry","أرشفة إلكترونية":"Digital archiving","أنظمة POS":"POS systems","الجرد":"Inventory","خدمة العملاء":"Customer service",
+"إعداد التقارير والجداول الحسابية، وسرعة ودقة في إدخال البيانات وإدارة الملفات.":"Preparing reports and spreadsheets, with fast, accurate data entry and file management.",
+"أبرز المشاريع العملية":"Key Projects",
+"منصة نشر سحابية مؤتمتة بالكامل":"Fully Automated Cloud Deployment Platform",
+"خط نشر متكامل (CI/CD) لتطبيق ويب باستخدام FastAPI وNginx داخل حاويات Docker على AWS EC2، مع أتمتة البنية التحتية عبر Terraform وGitHub Actions، ونظام مراقبة حي بـ Prometheus وGrafana.":"An end-to-end CI/CD pipeline for a web application using FastAPI and Nginx in Docker containers on AWS EC2, with infrastructure automated through Terraform and GitHub Actions and live monitoring with Prometheus and Grafana.",
+"نظام رسائل موزع يعتمد على الأحداث":"Event-Driven Distributed Messaging System",
+"معمارية سحابية تربط واجهات البرمجيات بطوابير الرسائل وخدمات الإشعارات، مع معالجة خلفية آمنة وإدارة متقدمة للأخطاء.":"A cloud architecture connecting APIs to message queues and notification services, with safe background processing and robust error handling.",
+"بناء كافة الموارد برمجياً بـ Terraform Modules، واختبارها محلياً عبر LocalStack.":"All resources built as code with Terraform modules and tested locally with LocalStack.",
+"استخدام طوابير الرسائل الفاشلة (Dead Letter Queues) لمنع ضياع البيانات.":"Dead Letter Queues used to prevent data loss.",
+"أتمتة النشر والتحقق من الجودة عبر GitHub Actions.":"Deployment and quality checks automated with GitHub Actions.",
+"المستودع على GitHub ←":"Repository on GitHub →",
+"عميل حوسبة حافة لإدارة الأصول التقنية الذكية":"Edge-Computing Client for Smart IT Asset Management",
+"مشروع التخرج":"Graduation project",
+"وكيل برمجي (Agent) خفيف الوزن لمراقبة أداء العتاد والموارد في الزمن الفعلي، مع لوحة تحكم مركزية لإدارة الأصول التقنية وتحسين استهلاكها.":"A lightweight software agent that monitors hardware and resource performance in real time, with a central dashboard for managing IT assets and optimizing their usage.",
+"البريد الإلكتروني":"Email",
+"أحمد طلحة. جميع الحقوق محفوظة.":"Ahmed Talha. All rights reserved."
+};
+var META={ar:{t:document.title,d:document.querySelector('meta[name=description]').content},
+en:{t:"Ahmed Talha | Computer Engineer – DevOps, Cloud & Systems Administration",d:"Computer engineer specialized in DevOps, AWS cloud computing, and Linux and Windows Server administration, with office and operational skills."}};
+var items=[];
+(function(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;
+while(n=w.nextNode()){var k=n.nodeValue.trim();if(k&&EN[k])items.push({n:n,o:n.nodeValue,k:k});}})();
+function setLang(l){
+  var en=l==="en",h=document.documentElement;
+  h.lang=l;h.dir=en?"ltr":"rtl";
+  items.forEach(function(i){i.n.nodeValue=en?i.o.replace(i.k,EN[i.k]):i.o;});
+  document.title=META[l].t;
+  document.querySelector('meta[name=description]').content=META[l].d;
+  var b=document.getElementById("langbtn");
+  b.textContent=en?"عربي":"English";b.lang=en?"ar":"en";
+  b.setAttribute("aria-label",en?"التبديل إلى العربية":"Switch language to English");
+}
+document.getElementById("langbtn").addEventListener("click",function(){
+  setLang(document.documentElement.lang==="en"?"ar":"en");
+});
+
+document.querySelectorAll(".switch button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.body.dataset.view=b.dataset.set;
+    document.querySelectorAll(".switch button").forEach(function(x){
+      x.setAttribute("aria-pressed",x===b?"true":"false");
+    });
+  });
+});
+</script>
 </body>
 </html>
